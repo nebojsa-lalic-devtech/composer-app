@@ -1,0 +1,20 @@
+{
+    "name": "nebojsa/composer-app",
+    "require": {
+        "klein/klein": "^2.1"
+    },
+    "autoload": {
+      "psr-4": {
+        "NL\\Models\\Employee\\": "app/NL/Models/Employee",
+        "NL\\Models\\Company\\": "app/NL/Models/Company",
+        "NL\\Models\\Person\\": "app/NL/Models/Person",
+        "NL\\Models\\Project\\": "app/NL/Models/Project"
+      }
+    },
+    "authors": [
+        {
+            "name": "nebojsa-lalic-devtech",
+            "email": "nebojsa.lalic@devtechgroup.com"
+        }
+    ]
+}

@@ -1,12 +1,41 @@
 <?php
 
-require_once '../app/NL/Autoload/autoloader.php';
+//require_once '../app/NL/Autoload/autoloader.php';
+require_once '../vendor/autoload.php';
 
-use app\NL\Route\FrontController;
+use Klein\Klein;
+//use app\NL\Route\FrontController;
 use app\NL\Models\Employee\Employee;
 use app\NL\Models\Company\Company;
 use app\NL\Models\Project\Project;
 
+$klein = new Klein();
+
+
+
+$klein->respond('GET', '/', function () {
+    return 'Klein TEST HOME radi!';
+
+//    $user = new Employee('Nebojsa', 'Lalic', 'nebojsa.lalic@devtechgroup.com', 'Software developer');
+//    $user2 = new Employee('Petar', 'Petrovic', 'petarpetrovic@gmail.com', 'QA');
+//    $user3 = new Employee('X', 'Man', 'xman@yahoo.com', 'Project manager');
+//
+//    echo 'Welcome to <b>Home Page</b> :)!<br>';
+//    echo '-------------------------------------------------------';
+//    echo '<h2>Hello from autoloaded class("Employee") with next details:</h2><br>';
+//    echo '<p>' . $user->getUserDetails() . '</p>';
+//    echo '<br>' . '<p>' . $user2->getUserDetails() . '</p>';
+//    echo '<br>' . '<p>' . $user3->getUserDetails() . '</p>';
+
+});
+
+$klein->respond('GET', '/klein', function () {
+    return 'Klein TEST "/klein" radi!';
+});
+
+$klein->dispatch();
+
+/*
 $frontController = new FrontController();
 
 $frontController->getUri();
@@ -40,4 +69,4 @@ $frontController->setRoute('/project', function () {
 });
 
 $frontController->dispatch();
-
+*/
