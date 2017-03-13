@@ -56,4 +56,18 @@ $klein->respond('GET', '/project', function () {
     return $projectView;
 });
 
+$klein->onHttpError(function () {
+    $smarty = new Smarty();
+
+    $current_uri = $_SERVER['REQUEST_URI'];
+
+    $errorMessage = "Oooups...your URL: \"" . $current_uri . "\" does not exist!";
+
+    $smarty->assign('errorMessage', $errorMessage);
+
+    $error404PageView = $smarty->display('404.tpl');
+
+    return $error404PageView;
+});
+
 $klein->dispatch();
