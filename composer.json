@@ -5,10 +5,7 @@
     },
     "autoload": {
       "psr-4": {
-        "NL\\Models\\Employee\\": "app/NL/Models/Employee",
-        "NL\\Models\\Company\\": "app/NL/Models/Company",
-        "NL\\Models\\Person\\": "app/NL/Models/Person",
-        "NL\\Models\\Project\\": "app/NL/Models/Project"
+        "app\\": ""
       }
     },
     "authors": [
