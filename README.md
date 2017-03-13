@@ -12,5 +12,4 @@ Small app based on the Vanilla task using Composer and a vendor router and templ
 - "localhost:8000/about" page will open page with information about Company
 - "localhost:8000/project" page will open page with information about Project
 - if you hit non-existent URLs, you will get "404 page"
-
 - Application implement Composer, Klein router & Smarty Template Engine
