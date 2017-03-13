@@ -24,7 +24,7 @@ $klein->respond('GET', '/', function () {
     $smarty->assign('user2Details', $user2Details);
     $smarty->assign('user3Details', $user3Details);
 
-    $indexView = $smarty->display('index.tpl');
+    $indexView = $smarty->display('templates/index.tpl');
     return $indexView;
 });
 
@@ -37,7 +37,7 @@ $klein->respond('GET', '/about', function () {
 
     $smarty->assign('companyDetails', $companyDetails);
 
-    $aboutView = $smarty->display('about.tpl');
+    $aboutView = $smarty->display('templates/about.tpl');
 
     return $aboutView;
 });
@@ -51,7 +51,7 @@ $klein->respond('GET', '/project', function () {
     
     $smarty->assign('projectDetails', $projectDetails);
 
-    $projectView = $smarty->display('project.tpl');
+    $projectView = $smarty->display('templates/project.tpl');
     
     return $projectView;
 });
@@ -65,7 +65,7 @@ $klein->onHttpError(function () {
 
     $smarty->assign('errorMessage', $errorMessage);
 
-    $error404PageView = $smarty->display('404.tpl');
+    $error404PageView = $smarty->display('templates/404.tpl');
 
     return $error404PageView;
 });
