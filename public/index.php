@@ -9,8 +9,9 @@ use app\NL\Models\Project\Project;
 
 $klein = new Klein();
 
-$klein->respond('GET', '/', function () {
-    $smarty = new Smarty();
+$smarty = new Smarty();
+
+$klein->respond('GET', '/', function () use ($smarty) {
 
     $user = new Employee('Nebojsa', 'Lalic', 'nebojsa.lalic@devtechgroup.com', 'Software developer');
     $user2 = new Employee('Petar', 'Petrovic', 'petarpetrovic@gmail.com', 'QA');
@@ -28,8 +29,7 @@ $klein->respond('GET', '/', function () {
     return $indexView;
 });
 
-$klein->respond('GET', '/about', function () {
-    $smarty = new Smarty();
+$klein->respond('GET', '/about', function () use ($smarty) {
 
     $company = new Company('DevTech', array('Mihajla Pupina 12', 'Janka Cmelika 7'), 'Information Technology');
 
@@ -42,8 +42,7 @@ $klein->respond('GET', '/about', function () {
     return $aboutView;
 });
 
-$klein->respond('GET', '/project', function () {
-    $smarty = new Smarty();
+$klein->respond('GET', '/project', function () use ($smarty) {
     
     $project = new Project('AppRiver', 'In Progress', 'Google', 'Street 01', 'IT');
 
@@ -56,8 +55,7 @@ $klein->respond('GET', '/project', function () {
     return $projectView;
 });
 
-$klein->onHttpError(function () {
-    $smarty = new Smarty();
+$klein->onHttpError(function () use ($smarty) {
 
     $current_uri = $_SERVER['REQUEST_URI'];
 
