@@ -16,40 +16,27 @@ $klein->respond('GET', '/', function () use ($smarty) {
     $user2 = new Employee('Petar', 'Petrovic', 'petarpetrovic@gmail.com', 'QA');
     $user3 = new Employee('X', 'Man', 'xman@yahoo.com', 'Project manager');
 
-    $userDetails = $user->getUserDetails();
-    $user2Details = $user2->getUserDetails();
-    $user3Details = $user3->getUserDetails();
+    $smarty->assign('userDetails', $user->getUserDetails());
+    $smarty->assign('user2Details', $user2->getUserDetails());
+    $smarty->assign('user3Details', $user3->getUserDetails());
 
-    $smarty->assign('userDetails', $userDetails);
-    $smarty->assign('user2Details', $user2Details);
-    $smarty->assign('user3Details', $user3Details);
-
-    $indexView = $smarty->display('templates/index.tpl');
-    return $indexView;
+    return $smarty->display('templates/index.tpl');
 });
 
 $klein->respond('GET', '/about', function () use ($smarty) {
     $company = new Company('DevTech', array('Mihajla Pupina 12', 'Janka Cmelika 7'), 'Information Technology');
 
-    $companyDetails = $company->getCompanyDetails();
+    $smarty->assign('companyDetails', $company->getCompanyDetails());
 
-    $smarty->assign('companyDetails', $companyDetails);
-
-    $aboutView = $smarty->display('templates/about.tpl');
-
-    return $aboutView;
+    return $smarty->display('templates/about.tpl');
 });
 
 $klein->respond('GET', '/project', function () use ($smarty) {
     $project = new Project('AppRiver', 'In Progress', 'Google', 'Street 01', 'IT');
 
-    $projectDetails = $project->getProject();
+    $smarty->assign('projectDetails', $project->getProject());
 
-    $smarty->assign('projectDetails', $projectDetails);
-
-    $projectView = $smarty->display('templates/project.tpl');
-
-    return $projectView;
+    return $smarty->display('templates/project.tpl');
 });
 
 $klein->onHttpError(function () use ($smarty) {
@@ -59,9 +46,7 @@ $klein->onHttpError(function () use ($smarty) {
 
     $smarty->assign('errorMessage', $errorMessage);
 
-    $error404PageView = $smarty->display('templates/404.tpl');
-
-    return $error404PageView;
+    return $smarty->display('templates/404.tpl');
 });
 
 $klein->dispatch();
